@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Favorite Restaurant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #28a745;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .restaurant-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .restaurant-list li {
+            background-color: #e0e0e0;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .restaurant-list li:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .orders-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .orders-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% csrf_token %}
+    <header>
+        <h1>Choose Your Favorite Restaurant</h1>
+    </header>
+    <nav>
+        
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'out' %}">Log out</a>
+        
+        
+    </nav>
+    <div class="container">
+        <ul class="restaurant-list">
+            
+            <a href="{% url 'rest1'  %}"><li>KFC</li></a>
+            <a href="{% url 'rest2'  %}"><li>MAC DONALD</li></a>
+            <a href="{% url 'rest3'  %}"><li>POPOYES</li></a>
+            
+          
+         
+        </ul>
+        <a class="orders-button" href="{% url 'order'  %}">View Orders</a>
+    </div>
+    <footer>
+        <p>&copy; 2023 Food.com</p>
+    </footer>
+</body>
+</html>

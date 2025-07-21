@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Orders and Restaurants</title>
+</head>
+<body bgcolor="lightblue">
+    <h1>Orders {{ user.username }} has placed:</h1>
+    {% if orders %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>restauraunt</th>
+                <th>Order ID</th>
+                <th>Food</th>
+                <th>Drink</th>
+                <th>SOS1</th>
+                <th>SOS2</th>
+                <th>DESC</th>
+                <th>ADET</th>
+                <th>Price</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Order Date</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td> {{ order.restaurant.name }}</td>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.food}}</td>
+                    <td>{{ order.drink}}</td>
+                    <td>{{ order.sos1}}</td>
+                    <td>{{ order.sos2}}</td>
+                    <td>{{ order.desc}}</td>
+                    <td>{{ order.adet}}</td>
+                    <td>{{order.price}}</td>
+                    <td>{{order.phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{order.address}}</td>
+                    <td>{{order.order_date}}</td>
+                   
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No orders found.</p>
+{% endif %}
+    
+     <br>
+   <button><a href="{% url 'rest' %}">Restaurants</a></button>
+
+</body>
+</html>

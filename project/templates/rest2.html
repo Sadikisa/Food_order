@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Menu Item</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: auto;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        h2 ,h1{
+            text-align: center;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    
+    <div class="form-group">
+        <h1>Welcome to MAC DONALD restaurant</h1>
+        <h2>Add Menu Item</h2>
+        <form action="rest2" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="foody">food:</label>
+                <select id="foody" name="food" required>
+                    <option value="double burger">double burger</option>
+                    <option value="cheese burger">cheese burger</option>
+                    <option values="double cheese burger">double cheese burger</option>
+                    <option values='mac burger'>mac burger</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="drinks">drinks:</label>
+                <select id="drinks" name="drink">
+                    <option value="water">water</option>
+                    <option value="cocacola">cocacola</option>
+                    <option value="fanta">fanta</option>
+                    <option values="sprite">milkshake</option>
+                    <option values='ayran'>ayran</option>
+                </select>
+            </div>
+
+            <div>
+                
+                <label for="firsts">sos:</label>
+                <select id="firsts" name="first">
+                    <option value="ketchap">ketchap</option>
+                    <option value="mayones">mayones</option>
+                    <option values="aci sos">aci sos</option>
+                    
+                </select>
+                
+            </div>
+
+ 
+
+            <div>
+                
+
+                <label for="seconds">sos:</label>
+                <select id="seconds" name="second">
+                    <option value="ketchap">ketchap</option>
+                    <option selected value="mayones">mayones</option>
+                    <option values="aci sos">aci sos</option>
+                    
+                </select>
+                
+            </div>
+
+      
+    
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" ></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">adet</label>
+                <input type="number" id="price" name="price" step="1" max='5' min='1' required>
+            </div>
+            <div >
+                <label for="numb">Phone no:</label>
+                    <input type="tel" id="numb"name="numb" placeholder="05........"  required>
+            
+            </div>
+            <label for="ad">address:</label>
+            <input type="text" name="ad" id="ad" required>
+            <div>
+            <div>
+                <p>price:250tl</p>
+            </div>
+            <div class="form-group">
+                <button type="submit">place order</button>
+            </div>
+        </form>
+        <form  method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            <button type="text">🏠</button>
+            <button style="color:red"><a href="{% url 'orders2' %}">orders</a></button>
+        </form>
+        
+    </div>
+
+</body>
+</html>

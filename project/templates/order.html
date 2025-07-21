@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders of {{ user.username }} at {{ restaurant.name }}</title>
+</head>
+<body>
+    <h1>Orders of {{ user.username }} at {{ restaurant.name }}</h1>
+    {% if orders %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Food</th>
+                    <th>Drink</th>
+                    <th>SOS1</th>
+                    <th>SOS2</th>
+                    <th>DESC</th>
+                    <th>ADET</th>
+                    <th>Price</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.food}}</td>
+                        <td>{{ order.drink}}</td>
+                        <td>{{ order.sos1}}</td>
+                        <td>{{ order.sos2}}</td>
+                        <td>{{ order.desc}}</td>
+                        <td>{{ order.adet}}</td>
+                        <td>{{order.price}}</td>
+                        <td>{{order.phone}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{order.address}}</td>
+                        <td>{{order.order_date}}</td>
+                        
+                        <td>
+                            <form><button  type="text"> <a  href="{% url 'status' %}"> cancel</a></button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No orders found.</p>
+    {% endif %}
+    <br>
+    <form  method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+        <button type="text">home</button>
+    </form>
+
+</body>
+</html>
